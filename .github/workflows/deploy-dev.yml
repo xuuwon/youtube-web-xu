@@ -28,7 +28,7 @@ jobs:
             - name: S3 기존 파일들 삭제 후 새로 업로드
               run:
                 aws s3 rm --recursive s3://dev-youtube-web-xu
-                aws s3 cp ./dist s3://dev-youtube-web-xu/ --recursive
+                aws s3 cp ./dist s3://dev-youtube-web-xu --recursive
             
             - name: CloudFront 캐시 무효화
               run: aws cloudfront create-invalidation --distribution-id EMN9IR2AC2WON --paths "/*"
